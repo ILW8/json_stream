@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="jsonstream",
-    version="0.0.1",
+    version="0.0.2",
     author="Jack Hargreaves",
     description="Load multiple delimited JSON documents from a single string or file-like object.",
     long_description=long_description,
@@ -16,7 +16,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.11',
     license='MIT',
     keywords='JSON stream load',
     py_modules=['jsonstream'],
