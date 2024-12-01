@@ -336,6 +336,13 @@ class DecodeStream:
                     and ex.doc[ex.pos-1].isdigit()
                 )
                 or (
+                    # edge-case: a float using scientific notation is split by the buffer eg. [3.3445867353967864e-/08]
+                        ex.pos == len(ex.doc) - 2
+                        and ex.doc[ex.pos] == 'e'
+                        and ex.doc[ex.pos + 1] in '-+'
+                        and ex.doc[ex.pos - 1].isdigit()
+                )
+                or (
                     # edge case: a keyword is split by the buffer eg. nul/l
                     ex.msg.startswith('Expecting value')
                     and len(ex.doc) - ex.pos < MAX_KEYWORD_LEN
