@@ -316,6 +316,8 @@ class DecodeStream:
             # eg. {1}
             "|Expecting '[,:]' delimiter"
             # eg. [1 2] or {"x"}
+            r"|Invalid \\uXXXX escape"
+            # eg. \u521d\u97
         )
         match = re.match(error_message_pattern, ex.msg)
         if match and ex.msg.startswith('Expecting'):
